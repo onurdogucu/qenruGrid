@@ -1,6 +1,6 @@
 /**
 * qenru Grid v1.0.0
-* http://plugin.softbax.com/qenruGrid
+* http://themethunders.com/plugin/qenruGrid/
 *
 * Copyright 2016, Turhan Onur Dogucu - http://onurdogucu.com ( Under Construction )
 * Written depends on needings.
