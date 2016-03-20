@@ -1,0 +1,50 @@
+
+/* Added Styles */
+.no-gutter{padding-left: 0 ; padding-right : 0 ;}
+.no-gutter-l{padding-left:0;}
+.no-gutter-r{padding-right:0;}
+body{font-family: 'Roboto', sans-serif;}
+
+/* Grid Main Body */
+.qenruGrid{margin-top:20px;}
+
+
+/* thead & tbody style for qenruGrid */
+.qenruRow,.qenruGridHead{display:table; width: 100%;}
+.qenruRow{ transition:all ease 0.3s;border-bottom:1px solid #ddd;border-right: 1px solid #ddd;float:left; position: relative;background:url(../imgs/down-icon.png) no-repeat scroll 99% center transparent;cursor: pointer;}
+.qenruRow.opened{background:url(../imgs/up-icon.png) no-repeat scroll 99% 9% transparent;}
+.qenruRow:hover{background-color:#f7f7f7;}
+.qenruGridHead{border:1px solid #ddd;background: #f7f7f7 }
+
+
+/* td & th style for qenruGrid */
+.qenruCol{ float:left; text-align: left; font-weight: bold;cursor: not-allowed; color:#796363 ; padding:10px; }
+.qenruCol:last-child{border-right: none;}
+.qenruRowData{ float:left; text-align: left; display: table-cell; vertical-align: middle;color:#796363 ;padding:10px;}
+.qenruRowData:first-child{border-left:1px solid #ddd;}
+
+
+/* extra specifications */
+.sortable{cursor: pointer;}
+.sortable:hover{ text-decoration: underline; }
+.sortable.order-down{background:url(../imgs/down-icon.png) no-repeat scroll 90% center transparent;}
+.sortable.order-up{background:url(../imgs/up-icon.png) no-repeat scroll 90% center transparent;}
+.qenruInlineSearch{width:81%;display:block;clear:left;padding-left:5px;font-weight: normal;}
+
+
+/* Filter Header */
+.filter-header{float:right;}
+.qenruSearch{float:right;margin-bottom:10px;}
+.qenruSearch input{padding:5px 10px;border:1px solid #ddd;border-bottom:4px solid #ddd;outline: none;color:#796363;}
+
+
+/* Sub Content */
+.subContent{width:100%;float:left;display:none;border-left: 1px solid #ddd;padding:10px;cursor: default;}
+.subContent .subHead,.subContent .subBody{background-color:#f7f7f7;border:1px solid #ddd;transition:all ease 0.3s;width:100%;float:left;}
+.subContent .subHead{border-bottom:none;padding:20px;}
+.subContent .subBody{border-top:none;padding:0px 20px 20px 20px;}
+.qenruRow:hover .subHead,.qenruRow:hover .subBody{background-color: #fff;}
+.subBodyContainer{float:left;width:100%;}
+.subHeadContainer,.subBodyRow{border-bottom:1px dashed #ddd;width:100%;display:table;}
+.subHeadCol,.subBodyRowData{vertical-align:middle;font-weight: bold;color:#796363;width:20%;display:table-cell; }
+.locationPoint{background:url(../imgs/loc.png) no-repeat scroll left center transparent; padding:7px 0 5px 25px;}

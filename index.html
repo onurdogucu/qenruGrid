@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>qenru Grid</title>
+
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" href="css/app.css" type="text/css"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+	<div class="qenruGrid col-sm-12 col-xs-12" id="qenruGrid">
+		<div id="qenruFilterHeader" class="filter-header">
+			<div class="qenruSearch">
+				<input type="text" placeholder="Filtrele.."/>
+			</div>
+			<div class="qenruPageSwitcher">
+                
+            </div>
+		</div>
+		<div class="qenruGridHead col-sm-12 col-xs-12 no-gutter">
+			
+		</div>
+		<div class="qenruGridBody col-sm-12 col-xs-12 no-gutter">
+
+		</div>
+		<div class="qenruGridFooter col-sm-12 col-xs-12 no-gutter"></div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+	<script src="core/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="core/js/app.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			var grid = $("#qenruGrid");
+			grid.qenruGrid({
+				editable:true,
+				colSearch: true,
+				colSort: true,
+				dataSource: {
+					read: "/plugin/qenruGrid/ajax/getJSON.php",
+					type: "json",
+					headDataSource: {
+						dataFields: [
+						{ index: "#edit",		name: "Düzenle",		data: "DataID",		editUrl:"/plugin/qenruGrid/ajax/editJSON.php?dataID=" },
+						{ index: "ReferenceNo", name: "Reference No", 	type: "string", 	is_searchable: true, is_sortable: true },
+						{ index: "FromCountry", name: "From Country", 	type: "string", 	is_hidden: true },
+						{ index: "Pol", 		name: "Pol", 			type: "string", 	is_searchable: true, is_sortable: true },
+						{ index: "ToCountry", 	name: "To Country", 	type: "string", 	is_hidden: true },
+						{ index: "Pod", 		name: "Pod", 			type: "string", 	is_searchable: true, is_sortable: true },
+						{ index: "Line", 		name: "Line", 			type: "string", 	is_searchable: true, is_sortable: true },
+						{ index: "Departure", 	name: "Departure", 		type: "date|json", 	is_searchable: true, is_sortable: true },
+						{ index: "Arrival", 	name: "Arrival", 		type: "date|string",is_searchable: true, is_sortable: true },
+						{ index: "TransitTime", name: "Transit Time", 	type: "int", 		is_sortable: true, 		appendAfter: " days" },
+						{ index: "Countdown", 	name: "Countdown", 		type: "string" }
+						],
+					}
+				}
+			});
+
+
+			$(document).on('click', '.sortable', function(e) {
+			    if (e.target !== this)
+					return;
+				$(this).trigger('qenru.sort');
+			});
+
+			$(document).on('click', '.qenruPager', function(e) {
+			   $(this).trigger('qenru.pager');
+			});
+
+			$(document).on('change', '#pageSwitcher', function(e) {
+			  $(this).trigger('qenru.rowPerPage');
+			});
+			$(document).on('keyup', '.qenruInlineSearch', function(e) {
+			  $(this).trigger('qenru.inline-search');
+			});
+			
+
+
+			
+			
+		});
+	</script>
+	
+</body>
+</html>
